@@ -8,7 +8,7 @@ import {TuiRadioListModule, TuiSliderModule} from '@taiga-ui/kit';
 
 import {TuiSliderExample1} from './examples/1';
 import {TuiSliderExample2} from './examples/2';
-import {ExampleTuiSliderComponent} from './slider.component';
+import {ExampleTuiSliderComponent} from './slider-old.component';
 
 @NgModule({
     imports: [
@@ -24,4 +24,4 @@ import {ExampleTuiSliderComponent} from './slider.component';
     declarations: [ExampleTuiSliderComponent, TuiSliderExample1, TuiSliderExample2],
     exports: [ExampleTuiSliderComponent],
 })
-export class ExampleTuiSliderModule {}
+export class ExampleTuiSliderOldModule {}

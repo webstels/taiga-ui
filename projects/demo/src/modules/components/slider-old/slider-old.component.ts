@@ -16,7 +16,7 @@ import {FrontEndExample} from '../../interfaces/front-end-example';
 
 @Component({
     selector: 'example-slider',
-    templateUrl: './slider.template.html',
+    templateUrl: './slider-old.template.html',
     changeDetection,
 })
 export class ExampleTuiSliderComponent {

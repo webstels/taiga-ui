@@ -768,10 +768,10 @@ export const ROUTES = [
         },
     },
     {
-        path: 'components/slider',
+        path: 'components/slider-old',
         loadChildren: () =>
-            import(`../components/slider/slider.module`).then(
-                m => m.ExampleTuiSliderModule,
+            import(`../components/slider-old/slider-old.module`).then(
+                m => m.ExampleTuiSliderOldModule,
             ),
         data: {
             title: 'Slider',

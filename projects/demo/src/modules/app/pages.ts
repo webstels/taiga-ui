@@ -736,9 +736,9 @@ export const pages: TuiDocPages = [
             },
             {
                 section: $localize`Components`,
-                title: 'Slider',
+                title: 'Slider[old]',
                 keywords: 'инпут, числа, форма, ввод, slider, слайдер, range, диапазон',
-                route: '/components/slider',
+                route: '/components/slider-old',
             },
             {
                 section: $localize`Components`,
