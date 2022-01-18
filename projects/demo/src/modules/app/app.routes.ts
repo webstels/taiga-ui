@@ -768,13 +768,23 @@ export const ROUTES = [
         },
     },
     {
+        path: 'components/slider',
+        loadChildren: () =>
+            import(`../components/slider/slider.module`).then(
+                m => m.ExampleTuiSliderModule,
+            ),
+        data: {
+            title: 'Slider',
+        },
+    },
+    {
         path: 'components/slider-old',
         loadChildren: () =>
             import(`../components/slider-old/slider-old.module`).then(
                 m => m.ExampleTuiSliderOldModule,
             ),
         data: {
-            title: 'Slider',
+            title: 'Slider[old]',
         },
     },
     {

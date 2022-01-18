@@ -1,0 +1,21 @@
+.ticks {
+    display: flex;
+    justify-content: space-between;
+    height: auto;
+    overflow: hidden;
+    margin-top: 16px;
+}
+
+option {
+    background: red;
+
+    &:before {
+        content: '||';
+        display: block;
+        width: 10px;
+        height: 10px;
+        background: greenyellow;
+        padding-left: 3px;
+        text-indent: 0;
+    }
+}

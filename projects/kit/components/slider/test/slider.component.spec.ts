@@ -9,8 +9,8 @@ import {NG_EVENT_PLUGINS} from '@tinkoff/ng-event-plugins';
 import {configureTestSuite} from 'ng-bullet';
 
 import {TuiKeySteps} from '../../../types/key-steps';
-import {TuiSliderComponent} from '../slider.component';
 import {TuiSliderModule} from '../slider.module';
+import {TuiSliderOldComponent} from '../slider-old.component';
 
 describe('Slider', () => {
     @Component({
@@ -30,8 +30,8 @@ describe('Slider', () => {
         `,
     })
     class TestComponent {
-        @ViewChild(TuiSliderComponent, {static: true})
-        component!: TuiSliderComponent;
+        @ViewChild(TuiSliderOldComponent, {static: true})
+        component!: TuiSliderOldComponent;
 
         testValue = new FormControl(5);
         default = false;
