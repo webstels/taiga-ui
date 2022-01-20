@@ -1,6 +1,29 @@
 <tui-doc-page header="Slider" package="KIT" type="components">
     <ng-template pageTab>
-        <p i18n>Component allows to choose a value from a limited range</p>
+        <dl i18n>
+            <dt><code>tuiSlider</code></dt>
+            <dd>
+                attribute component for native html tag
+                <code>&lt;input type="range" /&gt;</code>
+                to choose a value from a limited range.
+            </dd>
+        </dl>
+        <p>
+            Read more about current input's type in
+            <a
+                tuiLink
+                target="_blank"
+                href="https://developer.mozilla.org/en-US/docs/Web/HTML/Element/Input/range"
+            >
+                MDN Docs
+            </a>
+            .
+        </p>
+        <p i18n>
+            <strong>Usage:</strong>
+            <code>&lt;input tuiSlider min="0" max="100" step="1" /&gt;</code>
+            .
+        </p>
 
         <tui-doc-example
             id="sizes"
