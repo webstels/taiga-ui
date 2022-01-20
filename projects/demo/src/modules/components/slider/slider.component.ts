@@ -6,7 +6,6 @@ import {TuiSizeS} from '@taiga-ui/core';
 @Component({
     selector: 'example-slider',
     templateUrl: './slider.component.html',
-    styleUrls: ['./slider.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ExampleTuiSliderComponent {
