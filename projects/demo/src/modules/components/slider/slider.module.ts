@@ -8,6 +8,7 @@ import {TuiSliderModule} from '@taiga-ui/kit';
 import {TuiSliderExample1} from './examples/1';
 import {TuiSliderExample2} from './examples/2';
 import {TuiSliderExample3} from './examples/3';
+import {TuiSliderExample4} from './examples/4';
 import {ExampleTuiSliderComponent} from './slider.component';
 
 @NgModule({
@@ -23,6 +24,7 @@ import {ExampleTuiSliderComponent} from './slider.component';
         TuiSliderExample1,
         TuiSliderExample2,
         TuiSliderExample3,
+        TuiSliderExample4,
     ],
 })
 export class ExampleTuiSliderModule {}

@@ -39,6 +39,11 @@ export class ExampleTuiSliderComponent {
         TypeScript: import('!!raw-loader!./examples/3/index'),
     };
 
+    readonly example4: TuiDocExample = {
+        HTML: import('!!raw-loader!./examples/4/index.html'),
+        TypeScript: import('!!raw-loader!./examples/4/index'),
+    };
+
     readonly sizeVariants: ReadonlyArray<TuiSizeS> = ['s', 'm'];
     readonly control = new FormControl(1);
 

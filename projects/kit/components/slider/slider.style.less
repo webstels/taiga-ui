@@ -51,6 +51,11 @@
     background: @track-color;
     background-clip: content-box; /* To clip filling of paddings */
 
+    &:disabled {
+        opacity: var(--tui-disabled-opacity);
+        cursor: auto;
+    }
+
     &._ticks {
         .ticks();
     }
