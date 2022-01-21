@@ -14,16 +14,32 @@
 @track-color: var(--tui-base-03);
 @thumb-color: currentColor;
 
-.ticks() {
-    background: @track-color;
-    background: linear-gradient(to right, var(--tui-base-07) @ticks-thickness, @track-color @ticks-thickness) repeat-x;
-    background-size: var(--tui-slider-step-percentage) @track-height;
-    background-position: 0 center;
-}
-
-.customize-track() {
+.customize-track(@progress-filling: false, @ticks: false) {
     height: @track-height;
     border-radius: var(--tui-radius-m);
+
+    @ticks-gradient: repeating-linear-gradient(
+        to right,
+        var(--tui-base-07) 0 @ticks-thickness,
+        transparent @ticks-thickness var(--tui-slider-step-percentage)
+    );
+    @filling-progress-gradient: linear-gradient(
+        to right,
+        @thumb-color var(--tui-slider-fill-percentage),
+        transparent var(--tui-slider-fill-percentage)
+    );
+
+    & when (@progress-filling = true) and (@ticks = true) {
+        background: @ticks-gradient, @filling-progress-gradient;
+    }
+
+    & when (@progress-filling = true) and (@ticks = false) {
+        background: @filling-progress-gradient;
+    }
+
+    & when (@progress-filling = false) and (@ticks = true) {
+        background: @ticks-gradient;
+    }
 }
 
 .customize-thumb(@size) {
@@ -71,23 +87,20 @@
         outline: none;
     }
 
-    &._ticks {
-        .ticks();
+    &:not(._ticks)::-webkit-slider-runnable-track {
+        .customize-track(true, false);
     }
 
-    &::-webkit-slider-runnable-track {
-        .customize-track();
-
-        /* Fills all the space left to thumb with current color */
-        background: linear-gradient(
-            to right,
-            @thumb-color var(--tui-slider-fill-percentage),
-            transparent var(--tui-slider-fill-percentage)
-        );
+    &._ticks::-webkit-slider-runnable-track {
+        .customize-track(true, true);
     }
 
-    &::-moz-range-track {
-        .customize-track();
+    &._ticks::-moz-range-track {
+        .customize-track(false, true);
+    }
+
+    &:not(._ticks)::-moz-range-track {
+        .customize-track(false, false);
     }
 
     &[data-size='m']::-webkit-slider-thumb {
