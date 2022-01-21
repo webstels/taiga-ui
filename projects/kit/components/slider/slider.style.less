@@ -34,6 +34,10 @@
     border-radius: 50%;
     height: @thumb-heights[ @@size];
     width: @thumb-heights[ @@size];
+
+    :focus& {
+        box-shadow: 0 0 0 2px inset var(--tui-focus);
+    }
 }
 
 /* Vertically centers thumb on the track (webkit only) */
@@ -54,6 +58,10 @@
     &:disabled {
         opacity: var(--tui-disabled-opacity);
         cursor: auto;
+    }
+
+    &:focus {
+        outline: none;
     }
 
     &._ticks {
