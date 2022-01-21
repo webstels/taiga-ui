@@ -10,7 +10,12 @@ import {
     Self,
 } from '@angular/core';
 import {NgControl} from '@angular/forms';
-import {tuiDefaultProp} from '@taiga-ui/cdk';
+import {USER_AGENT} from '@ng-web-apis/common';
+import {
+    CHROMIUM_EDGE_START_VERSION,
+    isEdgeOlderThan,
+    tuiDefaultProp,
+} from '@taiga-ui/cdk';
 import {TuiSizeS} from '@taiga-ui/core';
 
 @Component({
@@ -59,6 +64,11 @@ export class TuiSliderComponent {
         return `${percentage}%`;
     }
 
+    @HostBinding('class._old-edge')
+    get isOldEdge(): boolean {
+        return isEdgeOlderThan(CHROMIUM_EDGE_START_VERSION, this.userAgent);
+    }
+
     get value(): number {
         return +this.control?.value || +this.elementRef.nativeElement.value || 0;
     }
@@ -69,6 +79,7 @@ export class TuiSliderComponent {
         @Inject(NgControl)
         private readonly control: NgControl | null,
         @Inject(ElementRef) private readonly elementRef: ElementRef<HTMLInputElement>,
+        @Inject(USER_AGENT) private readonly userAgent: string,
     ) {}
 
     /**

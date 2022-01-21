@@ -46,19 +46,23 @@
 }
 
 :host {
-    appearance: none;
-    cursor: pointer;
+    display: block;
     width: 100%;
-    height: @track-height;
     color: var(--tui-primary); /* See currentColor inside this file */
-    padding: 0.5rem 0; /* To catch click events nearby THIN input's track */
-    background: @track-color;
-    background-clip: content-box; /* To clip filling of paddings */
+    cursor: pointer;
 
     &:disabled {
         opacity: var(--tui-disabled-opacity);
         cursor: auto;
     }
+}
+
+:host:not(._old-edge) {
+    appearance: none;
+    height: @track-height;
+    padding: 0.5rem 0; /* To catch click events nearby THIN input's track */
+    background: @track-color;
+    background-clip: content-box; /* To clip filling of paddings */
 
     &:focus {
         outline: none;
@@ -103,5 +107,20 @@
 
     &::-moz-range-progress {
         background: @thumb-color;
+    }
+}
+
+/* Not-chromium Edge minimum customisation */
+:host._old-edge {
+    &::-ms-thumb {
+        background: @thumb-color;
+    }
+
+    &::-ms-fill-lower {
+        background: @thumb-color;
+    }
+
+    &::-ms-track {
+        background: @track-color;
     }
 }
