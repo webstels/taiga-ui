@@ -18,6 +18,8 @@
     height: @track-height;
     border-radius: var(--tui-radius-m);
 
+    @hide-first-tick: linear-gradient(to right, @thumb-color 0px @ticks-thickness, transparent @ticks-thickness);
+    @hide-last-tick: linear-gradient(to left, @track-color 0px @ticks-thickness, transparent @ticks-thickness);
     @ticks-gradient: repeating-linear-gradient(
         to right,
         var(--tui-base-07) 0 @ticks-thickness,
@@ -29,16 +31,16 @@
         transparent var(--tui-slider-fill-percentage)
     );
 
-    & when (@progress-filling = true) and (@ticks = true) {
-        background: @ticks-gradient, @filling-progress-gradient;
+    & when (@ticks = true) and (@progress-filling = true) {
+        background: @hide-first-tick, @hide-last-tick, @ticks-gradient, @filling-progress-gradient;
     }
 
-    & when (@progress-filling = true) and (@ticks = false) {
+    & when (@ticks = true) and (@progress-filling = false) {
+        background: @hide-first-tick, @hide-last-tick, @hide-first-tick, @ticks-gradient;
+    }
+
+    & when (@ticks = false) and (@progress-filling = true) {
         background: @filling-progress-gradient;
-    }
-
-    & when (@progress-filling = false) and (@ticks = true) {
-        background: @ticks-gradient;
     }
 }
 
