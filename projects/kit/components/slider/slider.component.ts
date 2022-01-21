@@ -71,7 +71,12 @@ export class TuiSliderComponent {
         @Inject(ElementRef) private readonly elementRef: ElementRef<HTMLInputElement>,
     ) {}
 
-    // For change detection (if no ngControl was provided)
-    @HostListener('change')
-    onChange() {}
+    /**
+     * For change detection.
+     * Webkit does not have built-in method for customization of filling progress (as Firefox).
+     * We draw filling of progress by `background: linear-gradient(...)` of the track.
+     * This function triggers change detection (for `fillPercentage` function) when we drag thumb of the input.
+     */
+    @HostListener('input')
+    onInput() {}
 }
