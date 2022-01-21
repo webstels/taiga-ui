@@ -28,12 +28,15 @@
 
 .customize-thumb(@size) {
     appearance: none;
-    cursor: ew-resize;
     background-color: @thumb-color;
     border: none;
     border-radius: 50%;
     height: @thumb-heights[ @@size];
     width: @thumb-heights[ @@size];
+
+    :not(:disabled)& {
+        cursor: ew-resize;
+    }
 
     :focus& {
         box-shadow: 0 0 0 2px inset var(--tui-focus);
