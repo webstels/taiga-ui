@@ -4,9 +4,9 @@ import {
     Component,
     ElementRef,
     forwardRef,
-    HostBinding,
     Inject,
     Input,
+    OnInit,
     Optional,
     Self,
     ViewChild,
@@ -37,7 +37,7 @@ import {TUI_VALUE_ACCESSOR_PROVIDER} from '@taiga-ui/kit/providers';
 })
 export class TuiInputInlineComponent
     extends AbstractTuiControl<string | number>
-    implements TuiFocusableElementAccessor
+    implements TuiFocusableElementAccessor, OnInit
 {
     @ViewChild('native')
     private readonly native?: ElementRef<HTMLInputElement>;
@@ -66,13 +66,6 @@ export class TuiInputInlineComponent
 
     get hasValue(): boolean {
         return this.value !== '';
-    }
-
-    @HostBinding('attr.data-value')
-    get maskedValue(): string {
-        return this.native?.nativeElement.value && this.value
-            ? this.native.nativeElement.value
-            : String(this.value);
     }
 
     onValueChange(value: string) {
